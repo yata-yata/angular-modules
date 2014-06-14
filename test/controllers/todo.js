@@ -17,18 +17,42 @@ var Lab = require('lab'),
     assert = Lab.assert;
 
 describe('Todo', function(){
-    var promise = {
+    var promise = function(val){
+        return {
             then: function(fn){
-                fn();
+                if(fn) {
+                    fn(val);
+                }
             }
+        }
     },
     todoService = {
         all: function(){
-            return promise;
+            return promise([]);
         }
     };
 
     describe('#addTodo', function(){
+        beforeEach(function(done){
+            todoService.post = function(){
+                return promise('123');
+            };
+
+            done();
+        });
+        it('pushes a new todo using `newTodo` as the title to $scope.todos', function(done){
+            var scope = {},
+                todo = new Todo(scope, todoService),
+                curLen = scope.todos.length,
+                title = scope.newTodo = 'blah';
+
+            scope.addTodo();
+
+            expect(scope.todos.length).to.equal(curLen + 1);
+            expect(scope.todos[curLen].title).to.equal(title);
+
+            done();
+        });
     });
 
     describe('#archived', function(){
