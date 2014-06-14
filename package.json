@@ -7,7 +7,7 @@
     "test": "node ./node_modules/lab/bin/lab -v -c -p"
   },
   "author": "",
-  "license": "MIT",
+  "license": "Artistic-2.0",
   "dependencies": {
     "lodash": "^2.4.1"
   },
