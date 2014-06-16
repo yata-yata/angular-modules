@@ -12,6 +12,7 @@
     "lodash": "^2.4.1"
   },
   "devDependencies": {
-    "lab": "~3.2.1"
+    "lab": "~3.2.1",
+    "sinon": "^1.10.2"
   }
 }
