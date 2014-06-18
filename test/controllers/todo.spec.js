@@ -227,4 +227,28 @@ describe('Todo', function(){
             done();
         });
     });
+
+    describe('#statusOrder', function(){
+        it('returns 1 if the todos status is `not started`', function(done){
+            var scope = {},
+                todo = { title: 'A', status: 'not started'},
+                todoCtrl = new TodoCtrl(scope, todoService);
+
+            var result = scope.statusOrder(todo);
+            expect(result).to.equal(1);
+
+            done();
+        });
+
+        it('returns 0 if the todos status is `done`', function(done){
+            var scope = {},
+                todo = { title: 'A', status: 'done'},
+                todoCtrl = new TodoCtrl(scope, todoService);
+
+            var result = scope.statusOrder(todo);
+            expect(result).to.equal(0);
+
+            done();
+        });
+    });
 });
