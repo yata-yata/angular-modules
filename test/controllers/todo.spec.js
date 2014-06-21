@@ -207,22 +207,22 @@ describe('Todo', function(){
     });
 
     describe('#getStatusClass', function(){
-        it('returns `todo-icon-not-started` for status `not started`', function(done){
+        it('returns `todo-not-started` for status `not started`', function(done){
             var scope = {},
                 todoCtrl = new TodoCtrl(scope, todoService);
 
             var result = scope.getStatusClass('not started');
-            expect(result).to.equal('todo-icon-not-started');
+            expect(result).to.equal('todo-not-started');
 
             done();
         });
 
-        it('returns `todo-icon-done` for status `done`', function(done){
+        it('returns `todo-done` for status `done`', function(done){
             var scope = {},
                 todoCtrl = new TodoCtrl(scope, todoService);
 
             var result = scope.getStatusClass('done');
-            expect(result).to.equal('todo-icon-done');
+            expect(result).to.equal('todo-done');
 
             done();
         });
